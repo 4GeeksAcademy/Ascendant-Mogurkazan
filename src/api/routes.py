@@ -5,9 +5,11 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+import openai
+import os
 
 api = Blueprint('api', __name__)
-
+openai_api = Blueprint('openai_api', __name__)
 # Allow CORS requests to this API
 CORS(api)
 
@@ -20,3 +22,7 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+
+
+
